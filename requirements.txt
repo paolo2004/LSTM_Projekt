@@ -1,5 +1,5 @@
-fastapi
-uvicorn
+fastapi==0.123.10
+uvicorn==0.38.0
 tensorflow
 numpy
 pydantic
