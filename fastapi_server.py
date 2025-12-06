@@ -1,12 +1,14 @@
 from fastapi import FastAPI, Request
 import uvicorn
 import json
-from model_loader import model
+#from model_loader import model
 import tensorflow as tf
 import numpy as np
 
 app = FastAPI()
 
+# Load Model
+model = tf.keras.models.load_model("model/stock_model.h5")
 
 @app.get("/")
 def home():
@@ -29,8 +31,7 @@ async def webhook(request: Request):
 
     return {
         "received": data,
-        "model_prediction": float(prediction)
+        "model_prediction": float(prediction),
+        "signal": "BUY" if prediction > price else "SELL"
     }
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
