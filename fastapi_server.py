@@ -6,6 +6,7 @@ import tensorflow as tf
 import numpy as np
 import yfinance as yf
 from datetime import datetime, timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
 
 app = FastAPI()
 
@@ -37,6 +38,11 @@ def fetch_latest_close(ticker="AAPL"):
     latest_close = data['Close'].iloc[-1]
     latest_prediction = predict_price(latest_close)
     print(f"[{datetime.now()}] Latest close: {latest_close}, Prediction: {latest_prediction}")
+
+# Scheduler to fetch latest price every minute
+scheduler = BackgroundScheduler()
+scheduler.add_job(lambda: fetch_latest_close("AAPL"), 'interval', minutes=60)
+scheduler.start()
 
 @app.get("/")
 def home():
