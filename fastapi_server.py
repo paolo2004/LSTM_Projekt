@@ -30,7 +30,7 @@ def fetch_latest_close(ticker="AAPL"):
     end_date = datetime.today()
     start_date = end_date - timedelta(days=7)  # buffer for weekends/holidays
 
-    data = yf.download(ticker, start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'))
+    data = yf.download(ticker, start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'), interval='1m')
     if data.empty:
         print("No data fetched.")
         return
@@ -39,9 +39,9 @@ def fetch_latest_close(ticker="AAPL"):
     latest_prediction = predict_price(latest_close)
     print(f"[{datetime.now()}] Latest close: {latest_close}, Prediction: {latest_prediction}")
 
-# Scheduler to fetch latest price every minute
+# Scheduler to fetch latest price every hour
 scheduler = BackgroundScheduler()
-scheduler.add_job(lambda: fetch_latest_close("AAPL"), 'interval', minutes=60)
+scheduler.add_job(lambda: fetch_latest_close("AAPL"), 'interval', minutes=1)
 scheduler.start()
 
 @app.get("/")
