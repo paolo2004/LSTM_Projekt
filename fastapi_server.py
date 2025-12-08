@@ -1,7 +1,5 @@
 from fastapi import FastAPI, Request
 import uvicorn
-import json
-#from model_loader import model
 import tensorflow as tf
 import numpy as np
 import yfinance as yf
@@ -27,10 +25,8 @@ def predict_price(price):
 # Function to fetch latest close from yfinance
 def fetch_latest_close(ticker="AAPL"):
     global latest_close, latest_prediction
-    end_date = datetime.today()
-    start_date = end_date - timedelta(days=7)  # buffer for weekends/holidays
 
-    data = yf.download(ticker, start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'), interval='1m')
+    data = yf.download(ticker, period='1d', interval='1m', progress=False)
     if data.empty:
         print("No data fetched.")
         return
