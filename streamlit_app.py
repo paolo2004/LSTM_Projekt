@@ -11,7 +11,7 @@ model = tf.keras.models.load_model("model/stock_model.h5")
 st.markdown("""
     <style>
     .stApp {
-        background-color="aliceBlue"
+        background-color: aliceBlue;
     }
     </style>
 """, unsafe_allow_html=True)
