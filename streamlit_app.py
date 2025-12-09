@@ -35,14 +35,18 @@ if st.button("Show News"):
         st.warning("Please enter a stock ticker.")
     else:
         stock = yf.Ticker(ticker)
-        new = stock.news
-        if new.empty:
+        news = stock.news
+        if len(news) == 0:
             st.error("No news data available.")
         else:
             #Output
             st.subheader("News Data")
-            print(new)
-            st.write(new)
+            for item in news:#
+                st.write("### " + item.get("title", "No title"))
+                st.write(item.get("publisher", "Unknown source"))
+                st.write(item.get("link", ""))
+                st.write("---")
+
 
 # PREDICTION BUTTON
 if st.button("Predict Price"):
