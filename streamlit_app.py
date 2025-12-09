@@ -14,7 +14,7 @@ def set_bg_from_url():
        <style>
        .stApp{{
        background:
-       url("https://www.bing.com/images/search?view=detailV2&ccid=AgtIrwe9&id=EB4CF5FF9B3F527D7750B3DC527D4873265DDAD1&thid=OIP.AgtIrwe9HwqjbKdOY8Z4eAHaE8&mediaurl=https%3a%2f%2fmedia.gettyimages.com%2fid%2f1317587887%2fphoto%2ftrading-charts-on-a-display.jpg%3fs%3d612x612%26w%3dgi%26k%3d20%26c%3d-1OWpoM21zE_Rn0c-MZpnyZTJt-C6Y489wefF1jh_Vw%3d&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.020b48af07bd1f0aa36ca74e63c67878%3frik%3d0dpdJnNIfVLcsw%26pid%3dImgRaw%26r%3d0&exph=408&expw=612&q=trading+images&FORM=IRPRST&ck=577545C822EEE3C6BC208F970835FBB4&selectedIndex=4&itb=0")
+       url("https://www.bing.com/images/search?view=detailV2&ccid=AgtIrwe9&id=EB4CF5FF9B3F527D7750B3DC527D4873265DDAD1&thid=OIP.AgtIrwe9HwqjbKdOY8Z4eAHaE8&mediaurl=https%3a%2f%2fmedia.gettyimages.com%2fid%2f1317587887%2fphoto%2ftrading-charts-on-a-display.jpg%3fs%3d612x612%26w%3dgi%26k%3d20%26c%3d-1OWpoM21zE_Rn0c-MZpnyZTJt-C6Y489wefF1jh_Vw%3d&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.020b48af07bd1f0aa36ca74e63c67878%3frik%3d0dpdJnNIfVLcsw%26pid%3dImgRaw%26r%3d0&exph=408&expw=612&q=trading+images&FORM=IRPRST&ck=577545C822EEE3C6BC208F970835FBB4&selectedIndex=4&itb=0");
        background-size: cover;
        }}
        </style>
