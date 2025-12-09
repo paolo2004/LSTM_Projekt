@@ -7,11 +7,11 @@ from datetime import datetime, timedelta
 # Load model
 model = tf.keras.models.load_model("model/stock_model.h5")
 
-#Background_image
+#Background_color
 st.markdown("""
     <style>
     .stApp {
-        background-color: #1e90ff;
+        background-color="aliceBlue"
     }
     </style>
 """, unsafe_allow_html=True)
