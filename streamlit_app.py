@@ -8,19 +8,13 @@ from datetime import datetime, timedelta
 model = tf.keras.models.load_model("model/stock_model.h5")
 
 #Background_image
-st.markdown(
-        f""""
-       <style>
-       .stApp{{
-       background:
-       
-       url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/NYC_-_Midtown_Manhattan_%E2%80%93_Times_Square_%E2%80%93_Broadway_by_night_-_panoramio_%282%29.jpg/120px-NYC_-_Midtown_Manhattan_%E2%80%93_Times_Square_%E2%80%93_Broadway_by_night_-_panoramio_%282%29.jpg");
-          background-size: cover;
-       }}
-       </style>
-       """,
-        unsafe_allow_html=True,
-    )
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #1e90ff;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 
 st.set_page_config(page_title="Stock Price Predictor", layout="centered")
