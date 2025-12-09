@@ -17,9 +17,21 @@ lookback_days = st.slider("Lookback Days", 3, 30, 7)
 
 # Fetch stock data
 def fetch_latest_close(ticker):
-    end_date = datetime.today()
-    start_date = end_date - timedelta(days=lookback_days)
-    return yf.download(ticker, start=start_date, end=end_date, auto_adjust=False)
+    return yf.download(ticker, period='1d', interval='30m', auto_adjust=False)
+
+# NEWS BUTTON
+if st.button("Show News"):
+    if ticker == "":
+        st.warning("Please enter a stock ticker.")
+    else:
+        stock = yf.Ticker(ticker)
+        new = stock.news
+        if new.empty:
+            st.error("No news data available.")
+        else:
+            #Output
+            st.subheader("News Data")
+            st.write(new)
 
 # PREDICTION BUTTON
 if st.button("Predict Price"):
