@@ -8,8 +8,7 @@ from datetime import datetime, timedelta
 model = tf.keras.models.load_model("model/stock_model.h5")
 
 #Background_image
-def set_bg_from_url():
-    st.markdown(
+st.markdown(
         f""""
        <style>
        .stApp{{
@@ -22,7 +21,7 @@ def set_bg_from_url():
        """,
         unsafe_allow_html=True,
     )
-set_bg_from_url()
+
 
 st.set_page_config(page_title="Stock Price Predictor", layout="centered")
 
