@@ -1,21 +1,12 @@
+import yfinance as yf
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-import yfinance as yf
-from datetime import datetime, timedelta
 
 # Load model
 model = tf.keras.models.load_model("model/stock_model.h5")
 
-#Background_color
-st.markdown("""
-    <style>
-    .stApp {
-        background-color: aliceBlue;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
+#st.title("Stock Price Predictor")
 
 st.set_page_config(page_title="Stock Price Predictor", layout="centered")
 
@@ -28,30 +19,6 @@ lookback_days = st.slider("Lookback Days", 3, 30, 7)
 # Fetch stock data
 def fetch_latest_close(ticker):
     return yf.download(ticker, period='1d', interval='30m', auto_adjust=False)
-
-# NEWS BUTTON
-if st.button("Show News"):
-    if ticker == "":
-        st.warning("Please enter a stock ticker.")
-    else:
-        try:
-            stock = yf.Ticker(ticker)
-            news = stock.news
-
-            if not news or len(news) == 0:
-                st.error("No news data available.")
-            else:
-                st.subheader("News Data")
-                for item in news:
-                    st.write("### " + item.get("title", "No title"))
-                    st.write(item.get("publisher", "Unknown source"))
-                    st.write(item.get("link", ""))
-                    st.write("---")
-
-        except Exception as e:
-            st.error(f"Error fetching news: {e}")
-
-
 
 # PREDICTION BUTTON
 if st.button("Predict Price"):

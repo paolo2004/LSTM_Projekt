@@ -8,3 +8,7 @@ An API (Application Programming Interface) is a bridge that lets one software ta
 ## Render
 Render is a cloud hosting platform - similar to Heroku, Vercel, AWS, etc
 It is the easiest free way to host my trading LSTM FastAPI server online with a public webhook URL
+
+## Streamlit
+It is Python Framework that lets you build webapp using only Python.
+Think of it as a tool that turns Python scripts into websites with buttons, charts and inputs
